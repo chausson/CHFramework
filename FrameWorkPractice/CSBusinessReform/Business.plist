@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>version</key>
+	<string>1.0.1</string>
+	<key>signIn</key>
+	<dict>
+		<key>class</key>
+		<string>ASSignInViewController</string>
+		<key>title</key>
+		<string>SignIn</string>
+	</dict>
+	<key>album</key>
+	<dict>
+		<key>rootViewController</key>
+		<string>ASAlbumViewController</string>
+		<key>class</key>
+		<string>ASAlbumNavigationController</string>
+		<key>title</key>
+		<string>Select Photos</string>
+	</dict>
+</dict>
+</plist>

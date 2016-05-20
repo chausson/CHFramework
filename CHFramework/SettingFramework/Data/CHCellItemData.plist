@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>编辑个人资料</string>
+		<key>segueIdentifier</key>
+		<string>CHEditorInfoController</string>
+		<key>identifier</key>
+		<string>CHSettingItemCell</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>修改密码</string>
+		<key>segueIdentifier</key>
+		<string>CHAboutUsController</string>
+		<key>identifier</key>
+		<string>CHSettingItemCell</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>关于我们</string>
+		<key>identifier</key>
+		<string>CHSettingItemCell</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>CHSettingBackgroundCell</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>清除缓存</string>
+		<key>identifier</key>
+		<string>CHSettingItemCell</string>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>CHSignOutCell</string>
+	</dict>
+</array>
+</plist>

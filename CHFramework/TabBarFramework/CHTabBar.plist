@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>color</key>
+	<string>0X808080</string>
+	<key>style</key>
+	<string>UIVisualEffectView</string>
+	<key>height</key>
+	<integer>49</integer>
+	<key>selectIndex</key>
+	<integer>0</integer>
+	<key>tabBarItems</key>
+	<array>
+		<dict>
+			<key>UIViewControllName</key>
+			<string>LoginViewController</string>
+			<key>tabbarTitle</key>
+			<string>Demo</string>
+			<key>unselectedIconName</key>
+			<string>found</string>
+			<key>selectedIconName</key>
+			<string>seletfound</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>Demo</string>
+			<key>UIViewControllName</key>
+			<string>SettingViewController</string>
+			<key>unselectedIconName</key>
+			<string>circle</string>
+			<key>selectedIconName</key>
+			<string>seletcircle</string>
+		</dict>
+		<dict>
+			<key>tabbarTitle</key>
+			<string>Demo</string>
+			<key>UIViewControllName</key>
+			<string>ChatViewController</string>
+			<key>unselectedIconName</key>
+			<string>found</string>
+			<key>selectedIconName</key>
+			<string>seletfound</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string></string>
+</dict>
+</plist>

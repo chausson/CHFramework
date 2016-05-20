@@ -1,0 +1,12 @@
+platform :ios, '8.0'
+
+pod 'WebViewJavascriptBridge','~>5.0.5'
+pod 'ReactiveCocoa', '~> 2.5'
+pod 'JSONModel'
+pod 'QBImagePickerController'
+pod 'Masonry'
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'CHProgressHUD'
+pod 'CHNetworking'
+pod 'NJKWebViewProgress'
