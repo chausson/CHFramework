@@ -64,6 +64,7 @@
 @property (nonatomic , strong) UIView *backgroundView;
 @property (nonatomic , strong) UIView *containerView;
 @property (nonatomic , assign) BOOL hasSelected;
+@property (nonatomic , assign) CGFloat itemHeight;
 @end
 @implementation CHFilterRender
 + (instancetype)new{
@@ -82,7 +83,7 @@
     return self;
 }
 - (void)layoutUI{
-    _filterHeight = 200;
+    _itemHeight = 40;
     _normalColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1];
     _selectedColor = [UIColor orangeColor];
     _containerView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -125,6 +126,7 @@
 - (void)showWithFrame:(CGRect )frame
                toView:(UIView *)view
              animated:(BOOL)animated{
+    [self.tableView reloadData];
     self.containerView.userInteractionEnabled = YES;
     CGRect containerRect = frame;
     CGRect tableRect;
@@ -135,9 +137,14 @@
     self.backgroundView.frame = self.containerView.bounds;
     self.tableView.frame = CGRectMake(0, 0, self.containerView.frame.size.width, 0);
     tableRect = _tableView.frame;
-    tableRect.size.height = _filterHeight;
+    if (_filterHeight == 0 && self.delegate) {
+            tableRect.size.height = _itemHeight * [self.delegate filterDataSource].count;
+    }else{
+            tableRect.size.height = _filterHeight;
+    }
+
     if (animated) {
-        [UIView animateWithDuration:0.45f animations:^{
+        [UIView animateWithDuration:0.35f animations:^{
             self.tableView.frame = tableRect;
         } completion:^(BOOL finished) {
             
@@ -160,10 +167,8 @@
         CGRect tableRect = self.tableView.frame;
         tableRect.size.height = 0;
         if (animated) {
-            [UIView animateWithDuration:0.45f animations:^{
+            [UIView animateWithDuration:0.35f animations:^{
                 self.tableView.frame = tableRect;
-                [self.containerView setNeedsLayout];
-                [self.containerView setNeedsDisplay];
             } completion:^(BOOL finished) {
                 self.containerView.hidden = YES;
                 [self.containerView removeFromSuperview];
@@ -171,11 +176,8 @@
         }else{
             self.containerView.hidden = YES;
             self.tableView.frame = tableRect;
-            [self.containerView setNeedsLayout];
-            [self.containerView setNeedsDisplay];
             [self.containerView removeFromSuperview];
         }
-        
     }
 
     
@@ -228,11 +230,13 @@
     _tableView.frame = rect;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
     self.index = indexPath.row;
-    [self.tableView reloadData];
+
     if ([self.delegate respondsToSelector:@selector(didSelectedViewWithIndex:)]) {
         [self.delegate didSelectedViewWithIndex:indexPath.row];
     }
+
     
 }
 - (BOOL)isVisable{
