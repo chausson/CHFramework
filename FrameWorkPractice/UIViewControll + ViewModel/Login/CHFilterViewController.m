@@ -32,6 +32,7 @@
     return @[@"从远到近",@"从近到远",@"从价格低到价格高",@"从最低到最高",@"从最高到最低",@"从最贵到最便宜"];
 }
 - (IBAction)showFilter:(UIButton *)sender {
+    NSLog(@"_filter Visable =%d",_filter.visable);
     [_filter showBelowWithView:self.sectionView animated:YES];
 }
 - (void)didSelectedViewWithIndex:(NSInteger)index{

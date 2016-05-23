@@ -173,6 +173,7 @@
         
         [self.containerView setNeedsLayout];
         [self.containerView setNeedsDisplay];
+        [self.containerView removeFromSuperview];
     }
 
     
@@ -231,6 +232,9 @@
         [self.delegate didSelectedViewWithIndex:indexPath.row];
     }
     
+}
+- (BOOL)isVisable{
+    return !self.containerView.hidden;
 }
 @end
 

@@ -26,7 +26,7 @@
 @property (nonatomic , strong) UIColor *normalColor;
 @property (nonatomic , assign) NSInteger index;
 @property (nonatomic , assign) CGFloat filterHeight; // defult height is 200
-
+@property (nonatomic , readonly , getter=isVisable) BOOL visable; //decide is hidden or not status
 - (void)showWithFrame:(CGRect )frame
                toView:(UIView *)view
              animated:(BOOL)animated;
