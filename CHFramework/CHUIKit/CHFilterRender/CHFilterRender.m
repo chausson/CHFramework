@@ -162,18 +162,20 @@
         if (animated) {
             [UIView animateWithDuration:0.45f animations:^{
                 self.tableView.frame = tableRect;
-                
+                [self.containerView setNeedsLayout];
+                [self.containerView setNeedsDisplay];
             } completion:^(BOOL finished) {
                 self.containerView.hidden = YES;
+                [self.containerView removeFromSuperview];
             }];
         }else{
             self.containerView.hidden = YES;
             self.tableView.frame = tableRect;
+            [self.containerView setNeedsLayout];
+            [self.containerView setNeedsDisplay];
+            [self.containerView removeFromSuperview];
         }
         
-        [self.containerView setNeedsLayout];
-        [self.containerView setNeedsDisplay];
-        [self.containerView removeFromSuperview];
     }
 
     
