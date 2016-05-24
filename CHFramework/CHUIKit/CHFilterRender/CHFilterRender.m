@@ -159,6 +159,11 @@
 
 - (void)hiddenTap{
     [self hidden:YES];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shutDownFilterView)]) {
+        [self.delegate performSelector:@selector(shutDownFilterView)];
+    }
+
+    
 }
 - (void)hidden:(BOOL)animated{
 
