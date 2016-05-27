@@ -3,12 +3,12 @@
 //  FrameWorkPractice
 //
 //  Created by Chausson on 16/3/21.
-//  Copyright © 2016年 李赐岩. All rights reserved.
+//  Copyright © Chausson . All rights reserved.
 //
 
 #import "CHRegisterController.h"
-#import "CHLoginServiceCenter.h"
-
+#import "SDRegisterAPI.h"
+#import "SDSendCodeAPI.h"
 #import <CHProgressHUD/CHProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #define kUIColorFromRGB(rgbValue) [UIColor \
@@ -72,36 +72,25 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 // 登录响应事件
 - (void)registerAccount{
-
-
-    NSAssert(self.registerPathURL.length > 0, @"Please Input Login URL Path When You Used LoginModal");
+//    NSAssert(self.registerPathURL.length > 0, @"Please Input Login URL Path When You Used LoginModal");
     if (self.phoneField.text.length == 0 || self.passwordField.text.length == 0 || self.checkCodeField.text.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"输入的内容不能为空" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        [CHProgressHUD showPlainText:@"输入的内容不能为空"];
         return;
     }
-    NSAssert(self.registerPathURL.length > 0, @"Register Path URL Is Nil");
+ //   NSAssert(self.registerPathURL.length > 0, @"Register Path URL Is Nil");
     [self registerFirstResponsed];
     [CHProgressHUD show:YES];
-    @weakify(self);
-    [[CHLoginServiceCenter shareInstance] regsterAccount:self.phoneField.text password:self.passwordField.text checkCode:self.checkCodeField.text urlPath:self.registerPathURL successful:^(id result) {
-        @strongify(self);
-        [CHProgressHUD hide:YES];
-        if ([result[@"code"] intValue] == 200) {
+    SDRegisterAPI *registerRequest = [[SDRegisterAPI alloc]initWithAccount:self.phoneField.text password:self.passwordField.text phoneCode:self.checkCodeField.text];
+    [registerRequest startWithSuccessBlock:^(__kindof SDRegisterAPI *request) {
+        if (request.baseResponse.code == 200) {
+            [CHProgressHUD hideWithText:request.baseResponse.message animated:YES];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:result[@"messgae"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
+            [CHProgressHUD hideWithText:request.baseResponse.message animated:YES];
         }
-
-
-    } error:^(NSError *error) {
-        [CHProgressHUD hide:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"注册失败，请检查网络" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        CHLLog(@"Register Error = %@",[error description]);
+    } failureBlock:^(__kindof SDRegisterAPI *request) {
+            [CHProgressHUD hideWithText:@"注册用户失败，请确认网络后重试" animated:YES];
     }];
- 
     
 }
 - (void)countDownWithTime:(int )time{
@@ -117,7 +106,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
          dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalQueue);
          dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
          dispatch_source_set_event_handler(timer, ^{ //计时器事件处理器
-                CHLLog(@"Event Handler");
+          //      CHLLog(@"Event Handler");
              @strongify(self);
                  if (_surplusSecond <= 0) {
                          dispatch_source_cancel(timer); //取消定时循环计时器；使得句柄被调用，即事件被执行
@@ -153,27 +142,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #pragma mark IBAction
 - (void)fetchCheckCodeAction{
     if (self.phoneField.text.length == 0 && self.phoneField.text.length != 11) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入正确的手机号码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        [CHProgressHUD showPlainText:@"请输入正确的手机号码"];
         return;
     }
     [self registerFirstResponsed];
     [self countDownWithTime:60];
-    NSAssert(self.checkCodePathURL.length > 0, @"Register Path URL Is Nil");
-    [CHProgressHUD show:YES];
-    [[CHLoginServiceCenter shareInstance] checkCodeWithTel:self.phoneField.text andUrlPath:self.checkCodePathURL successful:^(id result) {
-        [CHProgressHUD hide:YES];
-        if ([result[@"code"] intValue] == 200) {
-            
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:result[@"messgae"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
+  //  NSAssert(self.checkCodePathURL.length > 0, @"Register Path URL Is Nil");
+    SDSendCodeAPI *sendCode = [[SDSendCodeAPI alloc]initWithCellPhone:self.phoneField.text];
+    [sendCode startWithSuccessBlock:^(__kindof SDSendCodeAPI *request) {
+        if (request.baseResponse.code != 200) {
+            [CHProgressHUD showPlainText:request.baseResponse.message];
         }
-    } error:^(NSError *error) {
-        [CHProgressHUD hide:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"发送验证码，请检查网络" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        CHLLog(@"Register Error = %@",[error description]);
+    } failureBlock:^(__kindof SDSendCodeAPI *request) {
+        [CHProgressHUD showPlainText:@"发送验证码，请确认网络后重试"];
     }];
     
 }

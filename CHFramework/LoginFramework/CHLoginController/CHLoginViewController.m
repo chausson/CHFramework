@@ -7,8 +7,8 @@
 
 #import "CHUserInfoModel.h"
 #import "CHLoginViewController.h"
-#import "CHLoginServiceCenter.h"
 #import "CHLoginModalController.h"
+#import "SDLoginAPI.h"
 #import <CHProgressHUD/CHProgressHUD.h>
 #import <Masonry/Masonry.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -29,6 +29,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #pragma mark Activity
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [CHProgressHUD setTextDuration:0.8];
     [self regisetButtonAction];
     
 
@@ -90,46 +91,35 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // 登录响应事件
 - (void)login{
     [CHProgressHUD show:YES];
-    @weakify(self);
-    NSAssert(self.loginModalViewController.loginPathURL.length > 0, @"Please Input Login URL Path When You Used LoginModal");
-    [[CHLoginServiceCenter shareInstance]loginAccount:self.username.text password:self.passWordText.text urlPath:self.loginModalViewController.loginPathURL successful:^(id result) {
-        [CHProgressHUD hide:YES];
-        NSDictionary *info ;
-        if (result[@"data"]) {
-            info = result[@"data"];
-        }
-        int code = [result[@"code"]intValue];
-        @strongify(self);
-        if (code == 200 || info) {
-            if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_willCompletionWithSuccess:)]) {
-                [self.loginModalViewController.delegate ch_willCompletionWithSuccess:info];
-            }
+    SDLoginAPI *login = [[SDLoginAPI alloc]initWithAccount:self.username.text password:self.passWordText.text];
+    [login startWithSuccessBlock:^(__kindof SDLoginAPI *request) {
+        if (request.baseResponse.code == 200 ) {
+            [CHProgressHUD hide:YES];
             if (self.loginModalViewController) {
-                
+                if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_willCompletionWithSuccess:)]) {
+                    [self.loginModalViewController.delegate ch_willCompletionWithSuccess:request.baseResponse.data];
+                }
                 [self.loginModalViewController dismissViewControllerAnimated:YES completion:^{
-//                    if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_completionLoginWithSuccessful:)]) {
-//                        [self.loginModalViewController.delegate ch_completionLoginWithSuccessful:info];
-//                    }
+                    if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_completionLoginWithSuccessful:)]) {
+                        [self.loginModalViewController.delegate ch_completionLoginWithSuccessful:request.baseResponse.data];
+                    }
                 }];
             }
         }else{
+            NSString *message = request.baseResponse.message;
 
-            NSString *message;
-            if (result[@"message"]) {
-                message = result[@"message"] ;
-            }
-            NSError *failureError = [[NSError alloc]initWithDomain:[NSString stringWithFormat:@"%s",__PRETTY_FUNCTION__] code:code userInfo:@{@"message":message}];
+            [CHProgressHUD hideWithText:message animated:YES];
+            CHLLog(@"Login Message = %@",message);
+            NSError *failureError = [[NSError alloc]initWithDomain:[NSString stringWithFormat:@"%s",__PRETTY_FUNCTION__] code:request.baseResponse.code userInfo:@{@"message":message}];
             if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_completionLoginWithFailur:)]) {
                 [self.loginModalViewController.delegate ch_completionLoginWithFailur:failureError];
             }
-     
-            CHLLog(@"Login Message = %@",result[@"message"]);
+
         }
-    } error:^(NSError *error) {
-        @strongify(self);
-        [CHProgressHUD hide:YES];
+    } failureBlock:^(__kindof CHBaseRequest *request) {
+        [CHProgressHUD hideWithText:@"网络链接失败,请重新尝试" animated:YES];
         if ([self.loginModalViewController.delegate respondsToSelector:@selector(ch_completionLoginWithFailur:)]) {
-            [self.loginModalViewController.delegate ch_completionLoginWithFailur:error];
+            [self.loginModalViewController.delegate ch_completionLoginWithFailur:request.response.error];
         }
     }];
     

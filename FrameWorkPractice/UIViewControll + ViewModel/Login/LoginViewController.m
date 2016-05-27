@@ -14,6 +14,7 @@
 #import "CHCommentaryController.h"
 #import "CHFilterViewController.h"
 #import "CHSlideViewController.h"
+#import <CHNetworking/CHNetworking.h>
 #define TOKEN @"8rc3%2BVwxuDpgiOEW%2Fe37%2FMAQjeHM6HFb6K3cNEpmVHQ1Gfvx8YI%2BpkAzov2ysr9ExKdh3MRoPFqlBoRqEqucSSDLPsTP%2FyAr1BHoRG%2BvDO5XBUtGzSvIGBjfEiim%2Fy97peUK8KsIYKi%2FJmNhAS4QtQ%3D%3D"
 
 #define LISTURL @"http://p2pguide.sudaotech.com/platform/app/comment/list"
@@ -33,9 +34,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[CHNetworkConfig sharedInstance] setAllowPrintLog:YES];
+    [[CHNetworkConfig sharedInstance] setBaseUrl:@"http://app4tv.sudaotech.com/platform"];
     _data = @[@"CHLogin",@"CHCommentary",@"CHImagePicker",@"CHFilterRender",@"CHSlideView",@"CHWebView",@"CHProgressHUD"];
-    
-    [CHLoginModalController setLoginPathURL:@"http://p2pguide.sudaotech.com/platform/app/auth/login" checkCodePathURL:@"http://p2pguide.sudaotech.com/platform/phoneCode/single" registerPathURL:@"http://p2pguide.sudaotech.com/platform/app/register" resetPathURL:nil];
+ 
 
 }
 - (void)ch_completionLoginWithSuccessful:(NSDictionary *)info{

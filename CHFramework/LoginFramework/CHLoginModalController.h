@@ -41,7 +41,7 @@ FOUNDATION_EXPORT void CHLLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 + (void)setLoginPathURL:(NSString *)loginPathURL
        checkCodePathURL:(NSString *)checkCodePathURL
         registerPathURL:(NSString *)registerPathURL
-           resetPathURL:(NSString *)resetPathURL;
+           resetPathURL:(NSString *)resetPathURL __attribute__((deprecated));
 /* 如果登录使用webview显示 需要提供url链接地址*/
 //@property (nonatomic , copy) NSString *resetPasswordPath;
 //

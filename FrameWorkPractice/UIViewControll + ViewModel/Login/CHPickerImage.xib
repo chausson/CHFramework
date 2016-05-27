@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="104" id="CBV-Cd-5Gf"/>
                         <constraint firstAttribute="height" constant="30" id="hHo-it-Lc9"/>
                     </constraints>
-                    <state key="normal" title="拍照上传"/>
+                    <state key="normal" title="拍照"/>
                     <connections>
                         <action selector="pick:" destination="-1" eventType="touchUpInside" id="Jtf-9w-DB0"/>
                     </connections>
@@ -35,13 +35,28 @@
                         <constraint firstAttribute="width" constant="80" id="iL5-ch-ozX"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzr-kh-Rnz">
+                    <rect key="frame" x="248" y="302" width="104" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="104" id="Nkk-rr-qeQ"/>
+                        <constraint firstAttribute="width" constant="104" id="X7o-8J-B5o"/>
+                        <constraint firstAttribute="height" constant="30" id="pLm-GS-RJS"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="vOi-P0-xgJ"/>
+                    </constraints>
+                    <state key="normal" title="上传"/>
+                    <connections>
+                        <action selector="upload:" destination="-1" eventType="touchUpInside" id="UNY-Gy-abB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Cm3-Zx-MfN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0WV-kS-mji"/>
+                <constraint firstItem="Pzr-kh-Rnz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6GT-hc-Gpl"/>
                 <constraint firstItem="brv-Co-dfK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6Hs-KJ-6FC"/>
                 <constraint firstItem="brv-Co-dfK" firstAttribute="top" secondItem="Cm3-Zx-MfN" secondAttribute="bottom" constant="39" id="VE8-dn-Q5p"/>
                 <constraint firstItem="Cm3-Zx-MfN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="138" id="n59-J6-5uc"/>
+                <constraint firstItem="Pzr-kh-Rnz" firstAttribute="top" secondItem="brv-Co-dfK" secondAttribute="bottom" constant="15" id="q7A-24-Zx6"/>
             </constraints>
         </view>
     </objects>

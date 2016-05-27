@@ -23,8 +23,6 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     CHTabBarViewController *tabVC = [[CHTabBarViewController alloc] init];
-    
-
     self.window.rootViewController = [[ASNavigator shareModalCenter] innerWithHome:tabVC];
     [self.window makeKeyAndVisible];
     return YES;

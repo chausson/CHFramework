@@ -8,6 +8,7 @@
 
 #import "CHPickerImage.h"
 #import "CHImagePicker.h"
+#import "SDUploadImageAPI.h"
 @interface CHPickerImage ()
 
 @end
@@ -25,5 +26,13 @@
     } animated:YES];
 }
 
+- (IBAction)upload:(UIButton *)sender {
+    SDUploadImageAPI *upload = [[SDUploadImageAPI alloc]initWithImage:self.icon.image imageName:@"头像" fileName:@"icon"];
+    [upload startWithSuccessBlock:^(__kindof SDUploadImageAPI *request) {
+        NSLog(@"request = %lu",request.baseResponse.code);
+    } failureBlock:^(__kindof SDUploadImageAPI *request) {
+        
+    }];
+}
 
 @end

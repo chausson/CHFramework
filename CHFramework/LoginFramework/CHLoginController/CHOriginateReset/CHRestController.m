@@ -7,7 +7,8 @@
 //
 
 #import "CHRestController.h"
-#import "CHLoginServiceCenter.h"
+#import "SDResetPasswordAPI.h"
+#import "SDSendCodeAPI.h"
 #import <CHProgressHUD/CHProgressHUD.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #define kUIColorFromRGB(rgbValue) [UIColor \
@@ -54,33 +55,27 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #pragma mark IBAction
 - (void)fetchCheckCodeAction{
     if (self.phone.text.length == 0 && self.phone.text.length != 11) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入正确的手机号码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        [CHProgressHUD showPlainText:@"请输入正确的手机号码"];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入正确的手机号码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [alert show];
         return;
     }
     [self registerFirstResponsed];
     [self countDownWithTime:60];
-    NSAssert(self.checkCodePathURL.length > 0, @"重设密码的Code URL没有设置");
-    [CHProgressHUD show:YES];
-    [[CHLoginServiceCenter shareInstance] checkCodeWithTel:self.phone.text andUrlPath:self.checkCodePathURL successful:^(id result) {
-        [CHProgressHUD hide:YES];
-        if ([result[@"code"] intValue] == 200) {
-            
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:result[@"messgae"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
+  //  NSAssert(self.checkCodePathURL.length > 0, @"重设密码的Code URL没有设置");
+    SDSendCodeAPI *sendCode = [[SDSendCodeAPI alloc]initWithCellPhone:self.phone.text];
+    [sendCode startWithSuccessBlock:^(__kindof SDSendCodeAPI *request) {
+        if (request.baseResponse.code != 200) {
+            [CHProgressHUD showPlainText:request.baseResponse.message];
         }
-    } error:^(NSError *error) {
-        [CHProgressHUD hide:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"发送验证码，请检查网络" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        CHLLog(@"Register Error = %@",[error description]);
+    } failureBlock:^(__kindof SDSendCodeAPI *request) {
+        [CHProgressHUD showPlainText:@"发送验证码，请确认网络后重试"];
     }];
     
 }
 - (void)resetPassword{
     
-    NSAssert(self.resetPathURL.length > 0 , @"重设密码的URL没有设置");
+  //  NSAssert(self.resetPathURL.length > 0 , @"重设密码的URL没有设置");
     NSString *message ;
     if (self.phone.text.length == 0 || self.oldPassword.text.length == 0 || self.freshPassword.text.length == 0
         || self.checkCode.text.length == 0) {
@@ -90,27 +85,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         message = @"两次输入的密码不一致";
     }
     if (message.length > 0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        [CHProgressHUD showPlainText:message];
         return;
     }
     [CHProgressHUD show:YES];
-    [[CHLoginServiceCenter shareInstance] resetAccount:self.phone.text password:self.oldPassword.text checkCode:self.checkCode.text urlPath:self.resetPathURL successful:^(id result) {
-        [CHProgressHUD hide:YES];
-        NSString *message ;
-        if ([result[@"code"] intValue] == 200) {
-            message = @"重设密码成功";
+    SDResetPasswordAPI *reset = [[SDResetPasswordAPI alloc]initWithAccount:self.phone.text password:self.oldPassword.text phoneCode:self.checkCode.text];
+    [reset startWithSuccessBlock:^(__kindof SDResetPasswordAPI *request) {
+        [CHProgressHUD hideWithText:request.baseResponse.message animated:YES];
+        if (request.baseResponse.code == 200) {
             [self.navigationController popToRootViewControllerAnimated:YES];
-            
-        }else{
-            message = @"重设密码失败";
         }
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    } error:^(NSError *error) {
-        [CHProgressHUD hide:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"重设密码失败请检查网络" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+    } failureBlock:^(__kindof SDResetPasswordAPI *request) {
+        [CHProgressHUD hideWithText:@"重设密码失败请检查网络" animated:YES];
     }];
 }
 - (void)registerFirstResponsed{
@@ -132,7 +118,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, globalQueue);
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer, ^{ //计时器事件处理器
-        CHLLog(@"Event Handler");
+      //  CHLLog(@"Event Handler");
         @strongify(self);
         if (_surplusSecond <= 0) {
             dispatch_source_cancel(timer); //取消定时循环计时器；使得句柄被调用，即事件被执行

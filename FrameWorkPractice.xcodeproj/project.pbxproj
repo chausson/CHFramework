@@ -46,7 +46,6 @@
 		06284A6D1CEEDC36006CD08A /* CHRestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A1E1CEEDC36006CD08A /* CHRestController.m */; };
 		06284A6E1CEEDC36006CD08A /* CHLoginModalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A201CEEDC36006CD08A /* CHLoginModalController.m */; };
 		06284A6F1CEEDC36006CD08A /* CHLoginModalController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06284A211CEEDC36006CD08A /* CHLoginModalController.storyboard */; };
-		06284A701CEEDC36006CD08A /* CHLoginServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A241CEEDC36006CD08A /* CHLoginServiceCenter.m */; };
 		06284A711CEEDC36006CD08A /* CHContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A271CEEDC36006CD08A /* CHContentController.m */; };
 		06284A721CEEDC36006CD08A /* CHItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A291CEEDC36006CD08A /* CHItemViewModel.m */; };
 		06284A731CEEDC36006CD08A /* CHSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06284A2B1CEEDC36006CD08A /* CHSettingController.m */; };
@@ -184,8 +183,6 @@
 		06284A1F1CEEDC36006CD08A /* CHLoginModalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLoginModalController.h; sourceTree = "<group>"; };
 		06284A201CEEDC36006CD08A /* CHLoginModalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLoginModalController.m; sourceTree = "<group>"; };
 		06284A211CEEDC36006CD08A /* CHLoginModalController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CHLoginModalController.storyboard; sourceTree = "<group>"; };
-		06284A231CEEDC36006CD08A /* CHLoginServiceCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLoginServiceCenter.h; sourceTree = "<group>"; };
-		06284A241CEEDC36006CD08A /* CHLoginServiceCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLoginServiceCenter.m; sourceTree = "<group>"; };
 		06284A261CEEDC36006CD08A /* CHContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHContentController.h; sourceTree = "<group>"; };
 		06284A271CEEDC36006CD08A /* CHContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHContentController.m; sourceTree = "<group>"; };
 		06284A281CEEDC36006CD08A /* CHItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHItemViewModel.h; sourceTree = "<group>"; };
@@ -451,7 +448,6 @@
 				06284A1F1CEEDC36006CD08A /* CHLoginModalController.h */,
 				06284A201CEEDC36006CD08A /* CHLoginModalController.m */,
 				06284A211CEEDC36006CD08A /* CHLoginModalController.storyboard */,
-				06284A221CEEDC36006CD08A /* CHLoginService */,
 			);
 			path = LoginFramework;
 			sourceTree = "<group>";
@@ -516,15 +512,6 @@
 				06284A1E1CEEDC36006CD08A /* CHRestController.m */,
 			);
 			path = CHOriginateReset;
-			sourceTree = "<group>";
-		};
-		06284A221CEEDC36006CD08A /* CHLoginService */ = {
-			isa = PBXGroup;
-			children = (
-				06284A231CEEDC36006CD08A /* CHLoginServiceCenter.h */,
-				06284A241CEEDC36006CD08A /* CHLoginServiceCenter.m */,
-			);
-			path = CHLoginService;
 			sourceTree = "<group>";
 		};
 		06284A251CEEDC36006CD08A /* SettingFramework */ = {
@@ -1027,7 +1014,6 @@
 				06284A5D1CEEDC36006CD08A /* CHSlideCell.m in Sources */,
 				06284A6B1CEEDC36006CD08A /* CHLoginOperationWebViewModel.m in Sources */,
 				06284A7A1CEEDC36006CD08A /* CHSettingItemCell.m in Sources */,
-				06284A701CEEDC36006CD08A /* CHLoginServiceCenter.m in Sources */,
 				E340D5071C12B4A1007B317E /* LoginViewController.m in Sources */,
 				06284A631CEEDC36006CD08A /* YGPCacheMemory.m in Sources */,
 				06284A661CEEDC36006CD08A /* CHUserInfoModel.m in Sources */,
