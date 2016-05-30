@@ -64,10 +64,12 @@
 - (void)customButtonAction:(UIButton *)button
 {
     UIButton *btn = (UIButton *)[self viewWithTag:self -> tabBarViewModel.currentIndex+KIndexCount];
-    btn.selected = NO;
-    button.selected = YES;
-    [self selectedItem:button.tag-KIndexCount];
-    
+    if (![button isEqual:btn]) {
+        btn.selected = NO;
+        button.selected = YES;
+        [self selectedItem:button.tag-KIndexCount];
+    }
+
 }
 - (void)selectedItem:(NSInteger )index
 {
