@@ -1,5 +1,6 @@
 platform :ios, '8.0'
 
+pod 'CHImagePicker'
 pod 'WebViewJavascriptBridge','~>5.0.5'
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'JSONModel'

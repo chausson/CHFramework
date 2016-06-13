@@ -14,6 +14,7 @@
 #import "CHCommentaryController.h"
 #import "CHFilterViewController.h"
 #import "CHSlideViewController.h"
+#import "CHQuickTableController.h"
 #import <CHNetworking/CHNetworking.h>
 #define TOKEN @"8rc3%2BVwxuDpgiOEW%2Fe37%2FMAQjeHM6HFb6K3cNEpmVHQ1Gfvx8YI%2BpkAzov2ysr9ExKdh3MRoPFqlBoRqEqucSSDLPsTP%2FyAr1BHoRG%2BvDO5XBUtGzSvIGBjfEiim%2Fy97peUK8KsIYKi%2FJmNhAS4QtQ%3D%3D"
 
@@ -36,7 +37,7 @@
     [super viewDidLoad];
     [[CHNetworkConfig sharedInstance] setAllowPrintLog:YES];
     [[CHNetworkConfig sharedInstance] setBaseUrl:@"http://app4tv.sudaotech.com/platform"];
-    _data = @[@"CHLogin",@"CHCommentary",@"CHImagePicker",@"CHFilterRender",@"CHSlideView",@"CHWebView",@"CHProgressHUD"];
+    _data = @[@"CHLogin",@"CHCommentary",@"CHImagePicker",@"CHFilterRender",@"CHSlideView",@"CHWebView",@"CHQuickTableView"];
  
 
 }
@@ -54,7 +55,7 @@
    CHLoginModalController *login = [[CHLoginModalController alloc]init];
     login.needBackButton = YES;
     login.delegate = self;
-
+    
     [self presentViewController:login animated:YES completion:^{
         
     }];
@@ -78,8 +79,10 @@
         PUSH_AND_INIT_CONTROLLER([CHFilterViewController class])
     }else if(indexPath.row == 4){
         PUSH_AND_INIT_CONTROLLER([CHSlideViewController class])
-    }else{
+    }else if(indexPath.row == 5){
         [self web];
+    }else{
+        PUSH_AND_INIT_CONTROLLER([CHQuickTableController class])
     }
 }
 - (void)web{

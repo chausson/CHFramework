@@ -23,10 +23,6 @@
 		06284A561CEEDC36006CD08A /* CHCommentaryCellVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849E41CEEDC36006CD08A /* CHCommentaryCellVM.m */; };
 		06284A571CEEDC36006CD08A /* CHCommentaryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849E61CEEDC36006CD08A /* CHCommentaryViewModel.m */; };
 		06284A581CEEDC36006CD08A /* CHFilterRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849E91CEEDC36006CD08A /* CHFilterRender.m */; };
-		06284A591CEEDC36006CD08A /* CHDownSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849ED1CEEDC36006CD08A /* CHDownSheet.m */; };
-		06284A5A1CEEDC36006CD08A /* CHDownSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849EF1CEEDC36006CD08A /* CHDownSheetCell.m */; };
-		06284A5B1CEEDC36006CD08A /* CHDownSheetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849F11CEEDC36006CD08A /* CHDownSheetModel.m */; };
-		06284A5C1CEEDC36006CD08A /* CHImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849F31CEEDC36006CD08A /* CHImagePicker.m */; };
 		06284A5D1CEEDC36006CD08A /* CHSlideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849F61CEEDC36006CD08A /* CHSlideCell.m */; };
 		06284A5E1CEEDC36006CD08A /* CHSlideTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849F91CEEDC36006CD08A /* CHSlideTitleView.m */; };
 		06284A5F1CEEDC36006CD08A /* CHSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062849FB1CEEDC36006CD08A /* CHSlideView.m */; };
@@ -67,7 +63,12 @@
 		0674D0621CE44BE6000132ED /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0674D0611CE44BE6000132ED /* WebViewController.m */; };
 		0674D06B1CE46697000132ED /* CustomLoding.png in Resources */ = {isa = PBXBuildFile; fileRef = 0674D0691CE46697000132ED /* CustomLoding.png */; };
 		0674D06C1CE46697000132ED /* hello.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0674D06A1CE46697000132ED /* hello.pdf */; };
+		068505B31D07E3E90004B6B2 /* CHQuickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 068505B21D07E3E90004B6B2 /* CHQuickCell.m */; };
+		0687491C1D06A15E00055FE3 /* CHQuickTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0687491B1D06A15E00055FE3 /* CHQuickTableController.m */; };
+		0687491F1D06A19C00055FE3 /* CHQuickTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0687491E1D06A19C00055FE3 /* CHQuickTableViewModel.m */; };
+		068749221D06A2E900055FE3 /* CHQuickCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 068749211D06A2E900055FE3 /* CHQuickCellViewModel.m */; };
 		06C1E44E1CEDE65A005BC164 /* CHSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C1E44D1CEDE65A005BC164 /* CHSlideViewController.m */; };
+		06F71AD71D058E0500B9B323 /* CHQuickTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F71AD61D058E0500B9B323 /* CHQuickTableView.m */; };
 		24D40DAC3409B35665A22A76 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2A4890D5A7986790B4338B /* libPods.a */; };
 		256D4ACB1BF029730096E986 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 256D4ACA1BF029730096E986 /* main.m */; };
 		256D4ACE1BF029730096E986 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256D4ACD1BF029730096E986 /* AppDelegate.m */; };
@@ -138,14 +139,6 @@
 		062849E61CEEDC36006CD08A /* CHCommentaryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentaryViewModel.m; sourceTree = "<group>"; };
 		062849E81CEEDC36006CD08A /* CHFilterRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFilterRender.h; sourceTree = "<group>"; };
 		062849E91CEEDC36006CD08A /* CHFilterRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFilterRender.m; sourceTree = "<group>"; };
-		062849EC1CEEDC36006CD08A /* CHDownSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDownSheet.h; sourceTree = "<group>"; };
-		062849ED1CEEDC36006CD08A /* CHDownSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDownSheet.m; sourceTree = "<group>"; };
-		062849EE1CEEDC36006CD08A /* CHDownSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDownSheetCell.h; sourceTree = "<group>"; };
-		062849EF1CEEDC36006CD08A /* CHDownSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDownSheetCell.m; sourceTree = "<group>"; };
-		062849F01CEEDC36006CD08A /* CHDownSheetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDownSheetModel.h; sourceTree = "<group>"; };
-		062849F11CEEDC36006CD08A /* CHDownSheetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDownSheetModel.m; sourceTree = "<group>"; };
-		062849F21CEEDC36006CD08A /* CHImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHImagePicker.h; sourceTree = "<group>"; };
-		062849F31CEEDC36006CD08A /* CHImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHImagePicker.m; sourceTree = "<group>"; };
 		062849F51CEEDC36006CD08A /* CHSlideCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSlideCell.h; sourceTree = "<group>"; };
 		062849F61CEEDC36006CD08A /* CHSlideCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSlideCell.m; sourceTree = "<group>"; };
 		062849F71CEEDC36006CD08A /* CHSlideConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSlideConfig.h; sourceTree = "<group>"; };
@@ -220,8 +213,18 @@
 		0674D0611CE44BE6000132ED /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		0674D0691CE46697000132ED /* CustomLoding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomLoding.png; sourceTree = "<group>"; };
 		0674D06A1CE46697000132ED /* hello.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hello.pdf; sourceTree = "<group>"; };
+		068505B11D07E3E90004B6B2 /* CHQuickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHQuickCell.h; sourceTree = "<group>"; };
+		068505B21D07E3E90004B6B2 /* CHQuickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHQuickCell.m; sourceTree = "<group>"; };
+		0687491A1D06A15E00055FE3 /* CHQuickTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHQuickTableController.h; sourceTree = "<group>"; };
+		0687491B1D06A15E00055FE3 /* CHQuickTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHQuickTableController.m; sourceTree = "<group>"; };
+		0687491D1D06A19C00055FE3 /* CHQuickTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHQuickTableViewModel.h; sourceTree = "<group>"; };
+		0687491E1D06A19C00055FE3 /* CHQuickTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHQuickTableViewModel.m; sourceTree = "<group>"; };
+		068749201D06A2E900055FE3 /* CHQuickCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHQuickCellViewModel.h; sourceTree = "<group>"; };
+		068749211D06A2E900055FE3 /* CHQuickCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHQuickCellViewModel.m; sourceTree = "<group>"; };
 		06C1E44C1CEDE65A005BC164 /* CHSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSlideViewController.h; sourceTree = "<group>"; };
 		06C1E44D1CEDE65A005BC164 /* CHSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSlideViewController.m; sourceTree = "<group>"; };
+		06F71AD51D058E0500B9B323 /* CHQuickTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHQuickTableView.h; sourceTree = "<group>"; };
+		06F71AD61D058E0500B9B323 /* CHQuickTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHQuickTableView.m; sourceTree = "<group>"; };
 		256D4AC61BF029730096E986 /* FrameWorkPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrameWorkPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256D4ACA1BF029730096E986 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		256D4ACC1BF029730096E986 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -311,9 +314,9 @@
 		062849CF1CEEDC36006CD08A /* CHUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				06F71AD41D05607500B9B323 /* CHQuickTableView */,
 				062849D01CEEDC36006CD08A /* CHCommentary */,
 				062849E71CEEDC36006CD08A /* CHFilterRender */,
-				062849EA1CEEDC36006CD08A /* CHImagePicker */,
 				062849F41CEEDC36006CD08A /* CHSlideView */,
 			);
 			path = CHUIKit;
@@ -383,29 +386,6 @@
 				062849E91CEEDC36006CD08A /* CHFilterRender.m */,
 			);
 			path = CHFilterRender;
-			sourceTree = "<group>";
-		};
-		062849EA1CEEDC36006CD08A /* CHImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				062849EB1CEEDC36006CD08A /* ChaussonSheet */,
-				062849F21CEEDC36006CD08A /* CHImagePicker.h */,
-				062849F31CEEDC36006CD08A /* CHImagePicker.m */,
-			);
-			path = CHImagePicker;
-			sourceTree = "<group>";
-		};
-		062849EB1CEEDC36006CD08A /* ChaussonSheet */ = {
-			isa = PBXGroup;
-			children = (
-				062849EC1CEEDC36006CD08A /* CHDownSheet.h */,
-				062849ED1CEEDC36006CD08A /* CHDownSheet.m */,
-				062849EE1CEEDC36006CD08A /* CHDownSheetCell.h */,
-				062849EF1CEEDC36006CD08A /* CHDownSheetCell.m */,
-				062849F01CEEDC36006CD08A /* CHDownSheetModel.h */,
-				062849F11CEEDC36006CD08A /* CHDownSheetModel.m */,
-			);
-			path = ChaussonSheet;
 			sourceTree = "<group>";
 		};
 		062849F41CEEDC36006CD08A /* CHSlideView */ = {
@@ -600,6 +580,15 @@
 			path = WebViewFramework;
 			sourceTree = "<group>";
 		};
+		06F71AD41D05607500B9B323 /* CHQuickTableView */ = {
+			isa = PBXGroup;
+			children = (
+				06F71AD51D058E0500B9B323 /* CHQuickTableView.h */,
+				06F71AD61D058E0500B9B323 /* CHQuickTableView.m */,
+			);
+			path = CHQuickTableView;
+			sourceTree = "<group>";
+		};
 		256D4ABD1BF029730096E986 = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +761,14 @@
 				0606F7D41CEB13F900B4AEF9 /* CHFilterViewController.xib */,
 				06C1E44C1CEDE65A005BC164 /* CHSlideViewController.h */,
 				06C1E44D1CEDE65A005BC164 /* CHSlideViewController.m */,
+				0687491A1D06A15E00055FE3 /* CHQuickTableController.h */,
+				0687491B1D06A15E00055FE3 /* CHQuickTableController.m */,
+				0687491D1D06A19C00055FE3 /* CHQuickTableViewModel.h */,
+				0687491E1D06A19C00055FE3 /* CHQuickTableViewModel.m */,
+				068749201D06A2E900055FE3 /* CHQuickCellViewModel.h */,
+				068749211D06A2E900055FE3 /* CHQuickCellViewModel.m */,
+				068505B11D07E3E90004B6B2 /* CHQuickCell.h */,
+				068505B21D07E3E90004B6B2 /* CHQuickCell.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -983,24 +980,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				06284A821CEEDC36006CD08A /* CHWebViewController.m in Sources */,
+				0687491F1D06A19C00055FE3 /* CHQuickTableViewModel.m in Sources */,
 				06284A6C1CEEDC36006CD08A /* CHRegisterController.m in Sources */,
 				06284A6A1CEEDC36006CD08A /* CHLoginOperationWebController.m in Sources */,
 				06284A671CEEDC36006CD08A /* CHLoginButton.m in Sources */,
 				68A02CAB1BF311D60011AE54 /* UIColor+Hex.m in Sources */,
 				06284A611CEEDC36006CD08A /* YGPCache.m in Sources */,
 				06284A7B1CEEDC36006CD08A /* CHSignOutCell.m in Sources */,
+				0687491C1D06A15E00055FE3 /* CHQuickTableController.m in Sources */,
 				06284A6E1CEEDC36006CD08A /* CHLoginModalController.m in Sources */,
 				256D4ACE1BF029730096E986 /* AppDelegate.m in Sources */,
 				06284A5E1CEEDC36006CD08A /* CHSlideTitleView.m in Sources */,
 				06284A531CEEDC36006CD08A /* CHCommentaryCell.m in Sources */,
 				06284A5F1CEEDC36006CD08A /* CHSlideView.m in Sources */,
-				06284A5A1CEEDC36006CD08A /* CHDownSheetCell.m in Sources */,
 				E340D5021C12B495007B317E /* SettingViewController.m in Sources */,
 				256D4B211BF0523E0096E986 /* PlistReform.m in Sources */,
 				06284A761CEEDC36006CD08A /* CHEditorInfoController.m in Sources */,
 				06284A681CEEDC36006CD08A /* CHLoginTextField.m in Sources */,
 				06284A541CEEDC36006CD08A /* CHCommentaryTableView.m in Sources */,
-				06284A5C1CEEDC36006CD08A /* CHImagePicker.m in Sources */,
 				06284A4D1CEEDC36006CD08A /* ASNavigationController.m in Sources */,
 				06284A721CEEDC36006CD08A /* CHItemViewModel.m in Sources */,
 				06284A4F1CEEDC36006CD08A /* CHCommentaryApi.m in Sources */,
@@ -1009,7 +1006,10 @@
 				06284A791CEEDC36006CD08A /* CHSettingCell.m in Sources */,
 				06284A521CEEDC36006CD08A /* CHCommentaryModel.m in Sources */,
 				256D4ACB1BF029730096E986 /* main.m in Sources */,
+				068749221D06A2E900055FE3 /* CHQuickCellViewModel.m in Sources */,
+				068505B31D07E3E90004B6B2 /* CHQuickCell.m in Sources */,
 				06284A801CEEDC36006CD08A /* CHTabBarViewController.m in Sources */,
+				06F71AD71D058E0500B9B323 /* CHQuickTableView.m in Sources */,
 				06284A551CEEDC36006CD08A /* CHInputkeyboard.m in Sources */,
 				06284A5D1CEEDC36006CD08A /* CHSlideCell.m in Sources */,
 				06284A6B1CEEDC36006CD08A /* CHLoginOperationWebViewModel.m in Sources */,
@@ -1026,10 +1026,8 @@
 				06284A511CEEDC36006CD08A /* CHCommentaryController.m in Sources */,
 				06284A781CEEDC36006CD08A /* CHSettingBackgroundCell.m in Sources */,
 				68BB85401BF17A280005C702 /* (null) in Sources */,
-				06284A5B1CEEDC36006CD08A /* CHDownSheetModel.m in Sources */,
 				06284A7F1CEEDC36006CD08A /* CHTabBarModel.m in Sources */,
 				06284A711CEEDC36006CD08A /* CHContentController.m in Sources */,
-				06284A591CEEDC36006CD08A /* CHDownSheet.m in Sources */,
 				06284A571CEEDC36006CD08A /* CHCommentaryViewModel.m in Sources */,
 				06284A501CEEDC36006CD08A /* CHSendCommentApi.m in Sources */,
 				06284A651CEEDC36006CD08A /* IntroduceViewModel.m in Sources */,
